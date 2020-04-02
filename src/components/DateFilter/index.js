@@ -17,6 +17,7 @@ const DateFilter = ({ dateFilter, dispatch }) => {
             onChange={onChange}
             defaultValue={moment(dateFilter, "YYYY-MM-DD")}
             picker="week"
+            allowClear={false}
         />
     );
 };
