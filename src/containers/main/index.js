@@ -3,6 +3,7 @@ import { TurnipGraphChart } from "../../components/TurnipGraphChart";
 import { AddPriceForm } from "../../components/AddPriceForm/";
 import { AddBuyPriceForm } from "../../components/AddBuyPriceForm";
 import { TurnipTable } from "../../components/TurnipTable";
+import { DateFilter } from "../../components/DateFilter";
 import { Row, Col, Statistic, Card, PageHeader } from "antd";
 import { ArrowUpOutlined, ArrowDownOutlined } from "@ant-design/icons";
 
@@ -14,17 +15,18 @@ export const Main = () => {
             <Row>
                 <PageHeader title="Turnip Watch" />
             </Row>
-            <Row gutter={16}>
-                <Col span={20}>
-                    <Card title="Turnip Watch">
-                        <TurnipGraphChart />
+            <Row>
+                <Col>
+                    <Card>
+                        <DateFilter />
                     </Card>
                 </Col>
-
                 <Col span={4}>
                     <Card>
                         <Statistic title="Current Price" value={87} />
                     </Card>
+                </Col>
+                <Col>
                     <Card>
                         <Statistic
                             prefix={<ArrowUpOutlined />}
@@ -36,8 +38,15 @@ export const Main = () => {
                     </Card>
                 </Col>
             </Row>
+            <Row gutter={16}>
+                <Col span={24}>
+                    <Card>
+                        <TurnipGraphChart />
+                    </Card>
+                </Col>
+            </Row>
 
-            <Row gutter={[16, 16]}>
+            <Row gutter={16}>
                 <Col span={8}>
                     <Card>
                         <AddPriceForm />

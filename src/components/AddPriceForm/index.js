@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Row, Col, Form, InputNumber, DatePicker, Button } from "antd";
 import { connect } from "react-redux";
 import "./styles.scss";
