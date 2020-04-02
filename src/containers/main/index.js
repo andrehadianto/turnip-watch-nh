@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import { TurnipGraphChart } from "../../components/TurnipGraphChart";
-import { AddPriceForm } from "../../components/AddPriceForm";
+import { AddPriceForm } from "../../components/AddPriceForm/";
 import { AddBuyPriceForm } from "../../components/AddBuyPriceForm";
 import { TurnipTable } from "../../components/TurnipTable";
 import { Row, Col, Statistic, Card, PageHeader } from "antd";
