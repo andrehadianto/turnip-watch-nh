@@ -28,7 +28,7 @@ const reducer = (state = initialState, action) => {
     }
     if (action.type === "ADD_BUY_PRICE") {
         let tmp = state.buyPrice;
-        tmp[action.payload.week] = action.payload.price;
+        tmp[action.payload.date] = action.payload.buyingPrice;
         return Object.assign({}, state, {
             buyPrice: tmp
         });
