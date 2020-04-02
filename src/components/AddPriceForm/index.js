@@ -28,7 +28,7 @@ const AddPriceForm = ({ priceChart, dispatch }) => {
             <Row>
                 <Col span={18}>
                     <Form.Item name="morning-price">
-                        <InputNumber style={{width:"95%"}} min={0}/>
+                        <InputNumber placeholder="Turnip price BEFORE 12PM" style={{width:"95%"}} min={0}/>
                     </Form.Item>
                 </Col>
                 <Col span={6}>
@@ -42,7 +42,7 @@ const AddPriceForm = ({ priceChart, dispatch }) => {
             <Row>
                 <Col span={18}>
                     <Form.Item name="afternoon-price">
-                        <InputNumber style={{width:"95%"}} min={0}/>
+                        <InputNumber placeholder="Turnip price AFTER 12PM" style={{width:"95%"}} min={0}/>
                     </Form.Item>
                 </Col>
                 <Col span={6}>

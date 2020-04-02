@@ -26,7 +26,7 @@ const AddBuyPriceForm = ({ buyPrice, dispatch }) => {
             <Row>
                 <Col span={18}>
                     <Form.Item name="buy-price" rule={[{ required: true }]}>
-                        <InputNumber style={{ width: "95%" }} min={0} />
+                        <InputNumber placeholder="Turnip price when bought" style={{ width: "95%" }} min={0} />
                     </Form.Item>
                 </Col>
                 <Col span={6}>

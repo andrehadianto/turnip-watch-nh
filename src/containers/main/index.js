@@ -15,13 +15,13 @@ export const Main = () => {
             <Row>
                 <PageHeader title="Turnip Stalk Market" />
             </Row>
-            <Row gutter={[16, 0]} align="middle" justify='space-around'>
+            <Row gutter={[16, 0]} align="middle" justify='end'>
                 <Col>
                     <Card bordered={false}>
                         <DateFilter />
                     </Card>
                 </Col>
-                <Col span={4}>
+                {/* <Col span={4}>
                     <Card bordered={false}>
                         <Statistic
                             title="Current Price"
@@ -40,7 +40,7 @@ export const Main = () => {
                             }
                         />
                     </Card>
-                </Col>
+                </Col> */}
             </Row>
             <Row>
                 <Col span={24}>

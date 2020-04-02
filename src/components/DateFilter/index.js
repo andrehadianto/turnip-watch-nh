@@ -13,12 +13,15 @@ const DateFilter = ({ dateFilter, dispatch }) => {
         });
     };
     return (
-        <DatePicker
-            onChange={onChange}
-            defaultValue={moment(dateFilter, "YYYY-MM-DD")}
-            picker="week"
-            allowClear={false}
-        />
+        <Form.Item label="Date Filter">
+
+            <DatePicker
+                onChange={onChange}
+                defaultValue={moment(dateFilter, "YYYY-MM-DD")}
+                picker="week"
+                allowClear={false}
+            />
+        </Form.Item>
     );
 };
 
