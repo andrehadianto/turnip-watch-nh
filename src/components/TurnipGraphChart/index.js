@@ -46,11 +46,13 @@ const TurnipGraphChart = ({ priceChart, buyPrice, dateFilter }) => {
                         buy: buy
                     });
                     newData.push({
-                        name: date
+                        name: date,
+                        buy: buy
                     });
                 } else if (priceChart[date][1] && !priceChart[date][0]) {
                     newData.push({
-                        name: date
+                        name: date,
+                        buy: buy
                     });
                     newData.push({
                         name: date,
@@ -59,8 +61,8 @@ const TurnipGraphChart = ({ priceChart, buyPrice, dateFilter }) => {
                     });
                 }
             } else {
-                newData.push({ name: date });
-                newData.push({ name: date });
+                newData.push({ name: date, buy: buy });
+                newData.push({ name: date, buy: buy });
             }
         });
         setData(newData);
