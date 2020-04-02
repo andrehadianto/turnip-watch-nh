@@ -1,0 +1,1 @@
+{"version":3,"sources":["styles.scss"],"names":[],"mappings":"AAEA,KACE,0BAA2B,CAC3B,iBAAkB,CAClB,eAAgB,CAChB,sBAAuB","file":"main.372c3644.chunk.css","sourcesContent":["@import \"~antd/dist/antd.css\";\r\n\r\nbody {\r\n  background-color: '#fff5e2';\r\n  padding: 20px 40px;\r\n  color: '#AFE8FF';\r\n  border-color: '#AAFDBF';\r\n}"]}
