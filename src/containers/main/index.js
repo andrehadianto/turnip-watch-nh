@@ -4,21 +4,20 @@ import { AddPriceForm } from "../../components/AddPriceForm/";
 import { AddBuyPriceForm } from "../../components/AddBuyPriceForm";
 import { TurnipTable } from "../../components/TurnipTable";
 import { DateFilter } from "../../components/DateFilter";
-import { Row, Col, Typography, Card, PageHeader, Space, Button } from "antd";
+import { Row, Col, Typography, Card, PageHeader, Space, Divider } from "antd";
 
 import "./styles.scss";
 import { RecordState } from "../../components/RecordState";
 
 export const Main = () => {
     return (
-        <>
+        <div className="body">
             <Row>
                 <PageHeader title="Turnip Stalk Market" />
             </Row>
-            <Row gutter={[16, 0]} align="middle" justify="end">
+            <Row align="middle" justify="end">
                 <Col>
                     <Card bordered={false}>
-                        <Typography.Text>State: </Typography.Text>
                         <RecordState />
                     </Card>
                 </Col>
@@ -49,7 +48,7 @@ export const Main = () => {
                     </Card>
                 </Col> */}
             </Row>
-            <Row>
+            <Row gutter={[0, 16]}>
                 <Col span={24}>
                     <Card bordered={false}>
                         <TurnipGraphChart />
@@ -57,23 +56,31 @@ export const Main = () => {
                 </Col>
             </Row>
 
-            <Row gutter={[16, 24]}>
-                <Col span={8}>
-                    <Space direction="vertical" style={{ width: "100%" }}>
-                        <Card title="Add Turnip Selling Price">
-                            <AddPriceForm />
-                        </Card>
-                        <Card title="Add Turnip Buying Price">
-                            <AddBuyPriceForm />
-                        </Card>
-                    </Space>
+            <Row gutter={[16, 0]}>
+                <Col span={8} style={{ justifyContent: "space-between" }}>
+                    {/* <Space direction="vertical" style={{ width: "100%" }}> */}
+                    <Card title="Add Turnip Selling Price">
+                        <AddPriceForm />
+                    </Card>
+                    <Divider style={{ margin: "5px 0px" }} />
+                    <Card title="Add Turnip Buying Price">
+                        <AddBuyPriceForm />
+                    </Card>
+                    {/* </Space> */}
                 </Col>
                 <Col span={16}>
-                    <Card bordered={false}>
+                    <Card>
                         <TurnipTable />
                     </Card>
                 </Col>
             </Row>
-        </>
+            <Row>
+                <Col span={24}>
+                    <Card>
+                        <TurnipTable />
+                    </Card>
+                </Col>
+            </Row>
+        </div>
     );
 };

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Modal, Button, Input } from "antd";
+import { Typography, message, Modal, Button, Input } from "antd";
+import { SaveFilled, FileAddFilled} from '@ant-design/icons'
 import { connect } from "react-redux";
 import "./styles.scss";
 
-const RecordState = ({dispatch}) => {
+const RecordState = ({ dispatch }) => {
     const [isVisible, setIsVisible] = useState(false);
     const [loadData, setLoadData] = useState("");
 
@@ -28,22 +29,39 @@ const RecordState = ({dispatch}) => {
         localStorage.setItem("randid", uuid);
         dispatch({
             type: "LOAD_STATE",
-            payload: {priceChart: JSON.parse(priceChart), buyPrice: JSON.parse(buyPrice)}
-        })
+            payload: {
+                priceChart: JSON.parse(priceChart),
+                buyPrice: JSON.parse(buyPrice)
+            }
+        });
+        setIsVisible(false);
+        message.success("Load state successful!");
     };
 
     return (
         <>
-            <Button onClick={SaveState}>Save</Button>
-            <Button onClick={() => setIsVisible(true)}>Load</Button>
+            <Button.Group>
+                <Button type="link" onClick={SaveState}>
+                    <SaveFilled/>
+                    Save
+                </Button>
+                <Button type="link" onClick={() => setIsVisible(true)}>
+                    Load
+                    <FileAddFilled/>
+                </Button>
+            </Button.Group>
             <Modal
                 title="Load State"
                 visible={isVisible}
                 onOk={LoadState}
                 onCancel={() => setIsVisible(false)}
             >
+                <Typography.Text>
+                    Copy the code you saved here
+                </Typography.Text>
+                <br />
                 <Input.TextArea
-                    autoSize
+                    autoSize={{ minRows: 4 }}
                     onChange={e => setLoadData(e.target.value)}
                 />
             </Modal>

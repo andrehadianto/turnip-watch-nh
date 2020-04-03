@@ -72,6 +72,7 @@ const TurnipTable = ({ priceChart, buyPrice, dateFilter }) => {
 
     return (
         <Table
+            size="small"
             loading={isLoading}
             bordered
             tableLayout="auto"
