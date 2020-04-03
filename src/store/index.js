@@ -50,6 +50,12 @@ const reducer = (state = initialState, action) => {
             dateFilter: action.payload.date
         });
     }
+    if (action.type === "LOAD_STATE") {
+        console.log(action.payload)
+        console.log(state)
+        console.log(Object.assign({}, state, action.payload))
+        return Object.assign({}, state, action.payload);
+    }
     return state;
 };
 
