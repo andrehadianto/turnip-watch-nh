@@ -1,13 +1,10 @@
-import React, { useState, useEffect } from "react";
-import { List, Row, Col } from "antd";
+import React from "react";
+import moment from 'moment';
+import { List, Col } from "antd";
 import { connect } from "react-redux";
 import "./styles.scss";
 
 const TransactionHistory = ({ transaction }) => {
-    const [transactionDay, setTransactionDay] = useState([]);
-
-    useEffect(() => {}, []);
-
     return (
         <>
             {Object.keys(transaction).map((date) => {
@@ -22,7 +19,8 @@ const TransactionHistory = ({ transaction }) => {
                 console.log(data);
                 return (
                     <List
-                        header={date}
+                        style={{margin: "20px 0px"}}
+                        header={moment(date, "YYYY-MM-DD").format("dddd, MMMM Do YYYY")}
                         dataSource={data}
                         renderItem={(item) => (
                             <List.Item>

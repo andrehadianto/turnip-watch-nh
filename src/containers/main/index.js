@@ -180,7 +180,7 @@ export const Main = () => {
                                 bodyStyle={{
                                     backgroundColor: "rgba(255, 255, 255, 0.4)",
                                     border: 0,
-                                    padding: "24px 12px",
+                                    padding: "24px 12px 24px 0px",
                                 }}
                                 bordered={false}
                             >
