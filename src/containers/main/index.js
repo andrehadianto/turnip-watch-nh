@@ -9,9 +9,10 @@ import { Row, Col, Typography, Card, PageHeader, Switch } from "antd";
 
 import "./styles.scss";
 import { Help } from "../../components/Help";
+import { NetEarnings } from "../../components/NetEarnings";
 
 export const Main = () => {
-    const [view, setView] = useState(false);
+    const [view, setView] = useState(true);
     return (
         <div className="body">
             <Row>
@@ -138,7 +139,7 @@ export const Main = () => {
             </Row>
             {view ? (
                 <Row>
-                    <Col span={24}>
+                    <Col span={24} align="center">
                         <Card
                             style={{
                                 backgroundColor: "rgba(255, 255, 255, 0.0)",
@@ -155,6 +156,7 @@ export const Main = () => {
                             }}
                             bordered={false}
                         >
+                            <NetEarnings />
                             <ReportGraph />
                         </Card>
                     </Col>
