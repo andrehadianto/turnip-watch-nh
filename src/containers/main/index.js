@@ -6,6 +6,7 @@ import { TurnipTable } from "../../components/TurnipTable";
 import { DateFilter } from "../../components/DateFilter";
 import { RecordState } from "../../components/RecordState";
 import { ReportGraph } from "../../components/ReportGraph";
+import { AddModal } from '../../components/AddModal'
 import { Row, Col, Typography, Card, PageHeader, Divider } from "antd";
 
 import "./styles.scss";
@@ -18,6 +19,11 @@ export const Main = () => {
                 <PageHeader title="Turnip Stalk Market" />
             </Row>
             <Row align="middle" justify="end">
+                <Col>
+                    <Card bordered={false}>
+                        <AddModal />
+                    </Card>
+                </Col>
                 <Col>
                     <Card bordered={false}>
                         <RecordState />
@@ -48,22 +54,6 @@ export const Main = () => {
                 <Col span={24}>
                     <Card bordered={false} title="Profit/Loss">
                         <ReportGraph />
-                    </Card>
-                </Col>
-            </Row>
-
-            <Row gutter={[16, 16]}>
-                <Col span={8} style={{ justifyContent: "space-between" }}>
-                    <Card title="Add Turnip Selling Price">
-                        <AddPriceForm />
-                    </Card>
-                    <Divider style={{ margin: "5px 0px" }} />
-                    <Card title="Add Turnip Buying Price">
-                        <AddBuyPriceForm />
-                    </Card>
-                    <Divider style={{ margin: "5px 0px" }} />
-                    <Card title="Add Transaction">
-                        <AddTransactionForm />
                     </Card>
                 </Col>
             </Row>
