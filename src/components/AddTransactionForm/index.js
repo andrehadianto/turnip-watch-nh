@@ -47,6 +47,7 @@ const AddTransactionForm = ({ dispatch }) => {
                         <InputNumber
                             placeholder="Buying price per turnip"
                             min={0}
+                            style={{ width: "100%" }}
                         />
                     </Form.Item>
                 </Col>
@@ -57,6 +58,7 @@ const AddTransactionForm = ({ dispatch }) => {
                         <InputNumber
                             placeholder="Selling price per turnip"
                             min={0}
+                            style={{ width: "100%" }}
                         />
                     </Form.Item>
                 </Col>

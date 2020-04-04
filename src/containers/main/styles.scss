@@ -1,8 +1,15 @@
 @import "~antd/dist/antd.css";
 
 .body {
-  // background-color: #fff5e2;
+  background-image: url('../../resources/acnh-nook-pattern-cat-with-monocle.png');
+  background-repeat: repeat-y;
+  background-size: cover;
   padding: 20px 0px;
-  color: #AFE8FF;
-  border-color: #AAFDBF;
+  height: 100vh;
+}
+
+@media (max-width: 430px) {
+  .body {
+    height: fit-content;
+  }
 }
