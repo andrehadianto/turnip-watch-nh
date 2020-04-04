@@ -16,7 +16,7 @@ const TurnipGraphChart = ({ priceChart, buyPrice, dateFilter }) => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        let dateArray = [];
+        const dateArray = [];
         for (let i = 1; i < 7; i++) {
             dateArray.push(
                 moment(dateFilter, "YYYY-MM-DD")
@@ -25,51 +25,51 @@ const TurnipGraphChart = ({ priceChart, buyPrice, dateFilter }) => {
             );
         }
         const buy = buyPrice[dateFilter];
-        let newData = [];
+        const newData = [];
         dateArray.forEach(date => {
             if (date in priceChart) {
                 if (priceChart[date][0] && priceChart[date][1]) {
                     newData.push({
-                        name: date,
+                        date: moment(date,"YYYY-MM-DD").format("MM-DD"),
                         price: priceChart[date][0],
                         buy: buy
                     });
                     newData.push({
-                        name: date,
+                        date: moment(date,"YYYY-MM-DD").format("MM-DD"),
                         price: priceChart[date][1],
                         buy: buy
                     });
                 } else if (priceChart[date][0] && !priceChart[date][1]) {
                     newData.push({
-                        name: date,
+                        date: moment(date,"YYYY-MM-DD").format("MM-DD"),
                         price: priceChart[date][0],
                         buy: buy
                     });
                     newData.push({
-                        name: date,
+                        date: moment(date,"YYYY-MM-DD").format("MM-DD"),
                         buy: buy
                     });
                 } else if (priceChart[date][1] && !priceChart[date][0]) {
                     newData.push({
-                        name: date,
+                        date: moment(date,"YYYY-MM-DD").format("MM-DD"),
                         buy: buy
                     });
                     newData.push({
-                        name: date,
+                        date: moment(date,"YYYY-MM-DD").format("MM-DD"),
                         price: priceChart[date][1],
                         buy: buy
                     });
                 }
             } else {
-                newData.push({ name: date, buy: buy });
-                newData.push({ name: date, buy: buy });
+                newData.push({ date: moment(date,"YYYY-MM-DD").format("MM-DD"), buy: buy });
+                newData.push({ date: moment(date,"YYYY-MM-DD").format("MM-DD"), buy: buy });
             }
         });
         setData(newData);
     }, [priceChart, buyPrice, dateFilter]);
 
     return (
-        <ResponsiveContainer minWidth={640} minHeight={480}>
+        <ResponsiveContainer minWidth={375} minHeight={480}>
             <LineChart
                 width={600}
                 height={300}
@@ -89,7 +89,7 @@ const TurnipGraphChart = ({ priceChart, buyPrice, dateFilter }) => {
                     strokeWidth={1}
                 />
                 <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
-                <XAxis dataKey="name" />
+                <XAxis dataKey="date" dy={10} interval="preserveStart"/>
                 <YAxis
                     domain={[
                         dataMin => Math.round(dataMin * 0.9),
