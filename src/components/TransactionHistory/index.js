@@ -1,13 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { List, Row, Col } from "antd";
+import React from "react";
+import { List, Col } from "antd";
 import { connect } from "react-redux";
 import "./styles.scss";
 
 const TransactionHistory = ({ transaction }) => {
-    const [transactionDay, setTransactionDay] = useState([]);
-
-    useEffect(() => {}, []);
-
     return (
         <>
             {Object.keys(transaction).map((date) => {

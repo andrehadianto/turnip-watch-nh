@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Statistic } from "antd";
-import moment from "moment";
 import { connect } from "react-redux";
 import "./styles.scss";
 
