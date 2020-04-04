@@ -10,7 +10,7 @@ const AddModal = () => {
     const [isVisible, setIsVisible] = useState(false);
     return (
         <>
-            <Button type="primary" onClick={() => setIsVisible(true)}>
+            <Button shape="round" type="primary" onClick={() => setIsVisible(true)}>
                 <PlusOutlined />
                 Add Item
             </Button>
@@ -21,7 +21,22 @@ const AddModal = () => {
                 onCancel={() => setIsVisible(false)}
                 footer={null}
             >
-                <Card bodyStyle={{padding: "0px"}} bordered={false}>
+                <Card
+                    style={{
+                        backgroundColor: "rgba(255, 255, 255, 0.0)",
+                        border: 0,
+                    }}
+                    headStyle={{
+                        backgroundColor: "rgba(255, 255, 255, 0.4)",
+                        border: 0,
+                    }}
+                    bodyStyle={{
+                        backgroundColor: "rgba(255, 255, 255, 0,4)",
+                        border: 0,
+                        padding: "0px",
+                    }}
+                    bordered={false}
+                >
                     <Tabs defaultActiveKey="1">
                         <Tabs.TabPane tab="Add Selling Price" key="1">
                             <AddPriceForm />
