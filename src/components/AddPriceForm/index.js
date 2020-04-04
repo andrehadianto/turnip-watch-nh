@@ -1,19 +1,19 @@
 import React from "react";
-import { Row, Col, Form, InputNumber, DatePicker, Button } from "antd";
+import { Row, Col, Form, InputNumber, DatePicker, Button, Radio } from "antd";
 import { connect } from "react-redux";
 import "./styles.scss";
 
-const AddPriceForm = ({ priceChart, dispatch }) => {
+const AddPriceForm = ({ dispatch }) => {
     const [form] = Form.useForm();
 
     const onFinish = values => {
         const date = values["date-picker"].format("YYYY-MM-DD");
-        const morningPrice = values["morning-price"] || undefined
-        const afternoonPrice = values["afternoon-price"] || undefined
+        const dayNoon = values["day-noon-radio"];
+        const price = values["price-input"];
         dispatch({
             type: "ADD_PRICE",
-            payload: {date: date, morningPrice: morningPrice, afternoonPrice: afternoonPrice}
-        })
+            payload: { date: date, dayNoon: dayNoon, price: price }
+        });
     };
 
     return (
@@ -21,31 +21,36 @@ const AddPriceForm = ({ priceChart, dispatch }) => {
             <Row>
                 <Col span={24}>
                     <Form.Item name="date-picker" rule={[{ required: true }]}>
-                        <DatePicker style={{width:"100%"}} />
+                        <DatePicker style={{ width: "100%" }} />
                     </Form.Item>
                 </Col>
             </Row>
             <Row>
-                <Col span={18}>
-                    <Form.Item name="morning-price">
-                        <InputNumber placeholder="BEFORE 12PM" style={{width:"95%"}} min={0}/>
-                    </Form.Item>
-                </Col>
-                <Col span={6}>
-                    <Form.Item>
-                        <Button block type="primary" htmlType="submit">
-                            Add
-                        </Button>
+                <Col span={24}>
+                    <Form.Item name="price-input">
+                        <InputNumber
+                            placeholder="Nook's Cranny Turnip price"
+                            style={{ width: "100%" }}
+                            min={0}
+                        />
                     </Form.Item>
                 </Col>
             </Row>
             <Row>
-                <Col span={18}>
-                    <Form.Item name="afternoon-price">
-                        <InputNumber placeholder="AFTER 12PM" style={{width:"95%"}} min={0}/>
+                <Col span={24}>
+                    <Form.Item name="day-noon-radio">
+                        <Radio.Group
+                            defaultValue="morning"
+                            buttonStyle="outline"
+                        >
+                            <Radio value="morning">Before 12</Radio>
+                            <Radio value="afternoon">After 12</Radio>
+                        </Radio.Group>
                     </Form.Item>
                 </Col>
-                <Col span={6}>
+            </Row>
+            <Row>
+                <Col span={24}>
                     <Form.Item>
                         <Button block type="primary" htmlType="submit">
                             Add
@@ -57,14 +62,10 @@ const AddPriceForm = ({ priceChart, dispatch }) => {
     );
 };
 
-const mapStateToProps = state => {
-    return { priceChart: state.priceChart };
+const mapDispatchToProps = dispatch => {
+    return { dispatch };
 };
 
-const mapDispatchToProps = dispatch => {
-    return { dispatch }
-}
-
-const connectApp = connect(mapStateToProps, mapDispatchToProps)(AddPriceForm);
+const connectApp = connect(mapDispatchToProps)(AddPriceForm);
 
 export { connectApp as AddPriceForm };
