@@ -15,7 +15,7 @@ const RecordState = ({ dispatch }) => {
         const data = JSON.stringify([priceChart, buyPrice, uuid]);
         Modal.success({
             title: "Success! Copy the code below to someplace safe",
-            content: btoa(data)
+            content: (<Typography.Paragraph copyable>{btoa(data).toString()}</Typography.Paragraph>)
         });
     };
 
