@@ -10,7 +10,7 @@ const AddModal = () => {
     const [isVisible, setIsVisible] = useState(false);
     return (
         <>
-            <Button type="link" onClick={() => setIsVisible(true)}>
+            <Button type="primary" onClick={() => setIsVisible(true)}>
                 <PlusOutlined />
                 Add Item
             </Button>
