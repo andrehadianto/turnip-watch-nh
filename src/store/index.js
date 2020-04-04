@@ -10,28 +10,23 @@ const initialState = {
         : {},
     dateFilter: moment()
         .startOf("week")
-        .format("YYYY-MM-DD")
+        .format("YYYY-MM-DD"),
+    transaction: localStorage.getItem("transaction")
+        ? JSON.parse(localStorage.getItem("transaction"))
+        : {}
 };
 
 const reducer = (state = initialState, action) => {
     if (action.type === "ADD_PRICE") {
         let tmp = Object.assign({}, state.priceChart);
-        if (action.payload.date in state.priceChart) {
-            if (action.payload.morningPrice) {
-                tmp[action.payload.date][0] = action.payload.morningPrice;
-            }
-            if (action.payload.afternoonPrice) {
-                tmp[action.payload.date][1] = action.payload.afternoonPrice;
-            }
-            localStorage.setItem("priceChart", JSON.stringify(tmp));
-            return Object.assign({}, state, {
-                priceChart: tmp
-            });
+        if (!(action.payload.date in state.priceChart)) {
+            tmp[action.payload.date] = [];
         }
-        tmp[action.payload.date] = [
-            action.payload.morningPrice,
-            action.payload.afternoonPrice
-        ];
+        if (action.payload.dayNoon === "morning") {
+            tmp[action.payload.date][0] = action.payload.price;
+        } else if (action.payload.dayNoon === "afternoon") {
+            tmp[action.payload.date][1] = action.payload.price;
+        }
         localStorage.setItem("priceChart", JSON.stringify(tmp));
         return Object.assign({}, state, {
             priceChart: tmp
@@ -52,6 +47,19 @@ const reducer = (state = initialState, action) => {
     }
     if (action.type === "LOAD_STATE") {
         return Object.assign({}, state, action.payload);
+    }
+    if (action.type === "ADD_TRANSACTION") {
+        let tmp = Object.assign({}, state.transaction);
+        if (!(action.payload.date in state.transaction)) {
+            tmp[action.payload.date] = [];
+        }
+        tmp[action.payload.date].push([
+            action.payload.quantity,
+            action.payload.buyPrice,
+            action.payload.sellPrice
+        ]);
+        localStorage.setItem("transaction", JSON.stringify(tmp));
+        return Object.assign({}, state, { transaction: tmp });
     }
     return state;
 };
