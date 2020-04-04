@@ -10,7 +10,6 @@ const NetEarnings = ({ transaction }) => {
     useEffect(() => {
         let sum = 0;
         Object.keys(transaction).forEach((key) => {
-            console.log(key, transaction[key]);
             transaction[key].forEach((item) => {
                 sum += item[0] * (item[2] - item[1]);
             });

@@ -10,9 +10,10 @@ import { Row, Col, Typography, Card, PageHeader, Switch } from "antd";
 import "./styles.scss";
 import { Help } from "../../components/Help";
 import { NetEarnings } from "../../components/NetEarnings";
+import { TransactionHistory } from "../../components/TransactionHistory";
 
 export const Main = () => {
-    const [view, setView] = useState(true);
+    const [view, setView] = useState(false);
     return (
         <div className="body">
             <Row>
@@ -115,32 +116,10 @@ export const Main = () => {
                         <RecordState />
                     </Card>
                 </Col>
-                <Col>
-                    <Card
-                        size="small"
-                        style={{
-                            backgroundColor: "rgba(255, 255, 255, 0.0)",
-                            border: 0,
-                        }}
-                        headStyle={{
-                            backgroundColor: "rgba(255, 255, 255, 0.4)",
-                            border: 0,
-                        }}
-                        bodyStyle={{
-                            backgroundColor: "rgba(255, 255, 255, 0.0)",
-                            border: 0,
-                        }}
-                        bordered={false}
-                    >
-                        <Typography.Text>Date Filter: </Typography.Text>
-                        <DateFilter />
-                    </Card>
-                </Col>
-            </Row>
-            {view ? (
-                <Row>
-                    <Col span={24} align="center">
+                {view ? null : (
+                    <Col>
                         <Card
+                            size="small"
                             style={{
                                 backgroundColor: "rgba(255, 255, 255, 0.0)",
                                 border: 0,
@@ -150,17 +129,66 @@ export const Main = () => {
                                 border: 0,
                             }}
                             bodyStyle={{
-                                backgroundColor: "rgba(255, 255, 255, 0.2)",
+                                backgroundColor: "rgba(255, 255, 255, 0.0)",
                                 border: 0,
-                                padding: "24px 0px",
                             }}
                             bordered={false}
                         >
-                            <NetEarnings />
-                            <ReportGraph />
+                            <Typography.Text>Date Filter: </Typography.Text>
+                            <DateFilter />
                         </Card>
                     </Col>
-                </Row>
+                )}
+            </Row>
+            {view ? (
+                <>
+                    <Row>
+                        <Col span={24} align="center">
+                            <Card
+                                style={{
+                                    backgroundColor: "rgba(255, 255, 255, 0.0)",
+                                    border: 0,
+                                }}
+                                headStyle={{
+                                    backgroundColor: "rgba(255, 255, 255, 0.4)",
+                                    border: 0,
+                                }}
+                                bodyStyle={{
+                                    backgroundColor: "rgba(255, 255, 255, 0.2)",
+                                    border: 0,
+                                    padding: "24px 0px",
+                                }}
+                                bordered={false}
+                            >
+                                <NetEarnings />
+                                <ReportGraph />
+                            </Card>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col span={24} align="center">
+                            <Card
+                                title="Transaction History"
+                                style={{
+                                    backgroundColor: "rgba(255, 255, 255, 0.0)",
+                                    border: 0,
+                                }}
+                                headStyle={{
+                                    backgroundColor: "rgba(255, 255, 255, 0.6)",
+                                    border: 0,
+                                }}
+                                bodyStyle={{
+                                    backgroundColor: "rgba(255, 255, 255, 0.4)",
+                                    border: 0,
+                                    padding: "24px 12px",
+                                }}
+                                bordered={false}
+                            >
+                                <TransactionHistory />
+                            </Card>
+                        </Col>
+                    </Row>
+                </>
             ) : (
                 <>
                     <Row>

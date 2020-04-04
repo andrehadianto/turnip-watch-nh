@@ -1,12 +1,12 @@
 import React from "react";
-import { Form, Row, Col, DatePicker, Button, InputNumber } from "antd";
+import { Form, Row, Col, DatePicker, Button, InputNumber, message } from "antd";
 import { connect } from "react-redux";
 import "./styles.scss";
 
 const AddTransactionForm = ({ dispatch }) => {
     const [form] = Form.useForm();
 
-    const onFinish = values => {
+    const onFinish = (values) => {
         const date = values["date-picker"].format("YYYY-MM-DD");
         const quantity = values["quantity"];
         const buyPrice = values["buy-price"];
@@ -17,9 +17,10 @@ const AddTransactionForm = ({ dispatch }) => {
                 date: date,
                 quantity: quantity,
                 buyPrice: buyPrice,
-                sellPrice: sellPrice
-            }
+                sellPrice: sellPrice,
+            },
         });
+        message.success("Transaction has been added!");
     };
 
     return (
@@ -35,8 +36,10 @@ const AddTransactionForm = ({ dispatch }) => {
                 <Col span={24}>
                     <Form.Item name="quantity" rule={[{ required: true }]}>
                         <InputNumber
-                            placeholder="Quantity of turnip sold"
+                            type="number"
+                            placeholder="Turnip Quantity"
                             min={0}
+                            style={{ width: "50%" }}
                         />
                     </Form.Item>
                 </Col>
@@ -45,6 +48,7 @@ const AddTransactionForm = ({ dispatch }) => {
                 <Col span={24}>
                     <Form.Item name="buy-price" rule={[{ required: true }]}>
                         <InputNumber
+                            type="number"
                             placeholder="Buying price per turnip"
                             min={0}
                             style={{ width: "100%" }}
@@ -56,6 +60,7 @@ const AddTransactionForm = ({ dispatch }) => {
                 <Col span={24}>
                     <Form.Item name="sell-price" rule={[{ required: true }]}>
                         <InputNumber
+                            type="number"
                             placeholder="Selling price per turnip"
                             min={0}
                             style={{ width: "100%" }}
@@ -76,11 +81,11 @@ const AddTransactionForm = ({ dispatch }) => {
     );
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
     return { priceChart: state.priceChart };
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
     return { dispatch };
 };
 

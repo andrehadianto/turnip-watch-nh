@@ -6,10 +6,5 @@
   background-size: cover;
   padding: 20px 0px;
   height: 100vh;
-}
-
-@media (max-width: 430px) {
-  .body {
-    height: fit-content;
-  }
+  overflow: scroll;
 }

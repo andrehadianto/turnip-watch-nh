@@ -1,5 +1,14 @@
 import React from "react";
-import { Row, Col, Form, InputNumber, DatePicker, Button, Radio } from "antd";
+import {
+    Row,
+    Col,
+    Form,
+    InputNumber,
+    DatePicker,
+    Button,
+    Radio,
+    message,
+} from "antd";
 import { connect } from "react-redux";
 import "./styles.scss";
 
@@ -14,6 +23,8 @@ const AddPriceForm = ({ dispatch }) => {
             type: "ADD_PRICE",
             payload: { date: date, dayNoon: dayNoon, price: price },
         });
+        form.setFieldsValue({ "price-input": null });
+        message.success("Sell price has been added!");
     };
 
     return (
@@ -34,6 +45,7 @@ const AddPriceForm = ({ dispatch }) => {
                 <Col span={24}>
                     <Form.Item name="price-input">
                         <InputNumber
+                            type="number"
                             placeholder="Nook's Cranny Turnip price"
                             style={{ width: "100%" }}
                             min={0}
