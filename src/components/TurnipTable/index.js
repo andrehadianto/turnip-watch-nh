@@ -6,8 +6,10 @@ import "./styles.scss";
 
 const TurnipTable = ({ priceChart, buyPrice, dateFilter }) => {
     const [dataTable, setDataTable] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        setIsLoading(true);
         let dateArray = [];
         for (let i = 1; i < 7; i++) {
             dateArray.push(
@@ -58,6 +60,7 @@ const TurnipTable = ({ priceChart, buyPrice, dateFilter }) => {
             }
         });
         setDataTable(newData);
+        setIsLoading(false);
     }, [priceChart, buyPrice, dateFilter]);
 
     const columns = [
@@ -69,6 +72,8 @@ const TurnipTable = ({ priceChart, buyPrice, dateFilter }) => {
 
     return (
         <Table
+            size="small"
+            loading={isLoading}
             bordered
             tableLayout="auto"
             pagination={false}

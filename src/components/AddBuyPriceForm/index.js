@@ -3,11 +3,11 @@ import { Row, Col, Form, InputNumber, Button, DatePicker } from "antd";
 import { connect } from "react-redux";
 import "./styles.scss";
 
-const AddBuyPriceForm = ({ buyPrice, dispatch }) => {
+const AddBuyPriceForm = ({ dispatch }) => {
     const [form] = Form.useForm();
 
     const onFinish = values => {
-        const date = values["date-picker"].startOf('week').format("YYYY-MM-DD");
+        const date = values["date-picker"].startOf("week").format("YYYY-MM-DD");
         const buyingPrice = values["buy-price"];
         dispatch({
             type: "ADD_BUY_PRICE",
@@ -24,12 +24,18 @@ const AddBuyPriceForm = ({ buyPrice, dispatch }) => {
                 </Col>
             </Row>
             <Row>
-                <Col span={18}>
+                <Col span={24}>
                     <Form.Item name="buy-price" rule={[{ required: true }]}>
-                        <InputNumber placeholder="Turnip price when bought" style={{ width: "95%" }} min={0} />
+                        <InputNumber
+                            placeholder="Turnip price when bought"
+                            style={{ width: "100%" }}
+                            min={0}
+                        />
                     </Form.Item>
                 </Col>
-                <Col span={6}>
+            </Row>
+            <Row>
+                <Col span={24}>
                     <Form.Item>
                         <Button block type="primary" htmlType="submit">
                             Add
@@ -41,17 +47,10 @@ const AddBuyPriceForm = ({ buyPrice, dispatch }) => {
     );
 };
 
-const mapStateToProps = state => {
-    return { buyPrice: state.buyPrice };
-};
-
 const mapDispatchToProps = dispatch => {
     return { dispatch };
 };
 
-const connectApp = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(AddBuyPriceForm);
+const connectApp = connect(mapDispatchToProps)(AddBuyPriceForm);
 
 export { connectApp as AddBuyPriceForm };

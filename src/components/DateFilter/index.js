@@ -1,27 +1,24 @@
 import React from "react";
-import { Form, DatePicker } from "antd";
+import { DatePicker } from "antd";
 import { connect } from "react-redux";
 import moment from "moment";
 import "./styles.scss";
 
 const DateFilter = ({ dateFilter, dispatch }) => {
     const onChange = value => {
-        const date = value.startOf('week').format("YYYY-MM-DD");
+        const date = value.startOf("week").format("YYYY-MM-DD");
         dispatch({
             type: "SET_DATE_FILTER",
             payload: { date: date }
         });
     };
     return (
-        <Form.Item label="Date Filter">
-
-            <DatePicker
-                onChange={onChange}
-                defaultValue={moment(dateFilter, "YYYY-MM-DD")}
-                picker="week"
-                allowClear={false}
-            />
-        </Form.Item>
+        <DatePicker
+            onChange={onChange}
+            defaultValue={moment(dateFilter, "YYYY-MM-DD")}
+            picker="week"
+            allowClear={false}
+        />
     );
 };
 
