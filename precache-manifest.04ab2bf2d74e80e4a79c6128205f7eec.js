@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "f888b179d9d5ab3a7068bc13e8cb8c37",
+    "revision": "fee4f913d4fcddf6b66800fac82b2c15",
     "url": "/turnip-watch-nh/index.html"
   },
   {
@@ -8,7 +8,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/turnip-watch-nh/static/css/2.1c0e0c95.chunk.css"
   },
   {
-    "revision": "f58db9d1ada82c04b845",
+    "revision": "f01eb23022baef49743b",
     "url": "/turnip-watch-nh/static/css/main.e7423ed7.chunk.css"
   },
   {
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/turnip-watch-nh/static/js/2.28f1d736.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "f58db9d1ada82c04b845",
-    "url": "/turnip-watch-nh/static/js/main.7246cf8e.chunk.js"
+    "revision": "f01eb23022baef49743b",
+    "url": "/turnip-watch-nh/static/js/main.1f0ba7cd.chunk.js"
   },
   {
     "revision": "130f282f9bec9209554a",
