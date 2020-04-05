@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Button, Modal, Typography } from "antd";
-import { QuestionOutlined, TwitterOutlined, InstagramOutlined } from "@ant-design/icons";
+import {
+    QuestionOutlined,
+    TwitterOutlined,
+    InstagramOutlined,
+} from "@ant-design/icons";
 import "./styles.scss";
 
 const Help = () => {
@@ -28,7 +32,15 @@ const Help = () => {
                     the app are the Turnip Price Chart and the Earning Chart.
                 </Typography.Paragraph>
                 <Typography.Paragraph>
-                    Find me at @andreHL_96 <TwitterOutlined/> or @andrehl96 <InstagramOutlined/> if you found any bugs! 
+                    Find me at{" "}
+                    <a href="https://twitter.com/andrehl_96">
+                        @andreHL_96 <TwitterOutlined />
+                    </a>{" "}
+                    or{" "}
+                    <a href="https://www.instagram.com/andrehl96/">
+                        @andrehl96 <InstagramOutlined />
+                    </a>{" "}
+                    if you found any bugs!
                 </Typography.Paragraph>
                 <Typography.Text>
                     <b>How-to-use</b>
@@ -64,7 +76,8 @@ const Help = () => {
                     <b>Credit</b>
                 </Typography.Text>
                 <Typography.Paragraph>
-                    @greyonart and CatWithMonocle for the avatar and background
+                    <a href="https://catwithmonocle.com/">CatWithMonocle</a> for
+                    the background image
                 </Typography.Paragraph>
             </Modal>
         </>

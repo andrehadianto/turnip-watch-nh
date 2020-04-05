@@ -25,7 +25,7 @@ export const Main = () => {
                     avatar={{
                         shape: "square",
                         size: "large",
-                        src: require("../../resources/daisy-mae-avatar-greyonart.png"),
+                        src: require("../../resources/daisy-mae-avatar.png"),
                     }}
                 />
             </Row>
