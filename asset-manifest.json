@@ -1,27 +1,27 @@
 {
   "files": {
     "main.css": "/turnip-watch-nh/static/css/main.e7423ed7.chunk.css",
-    "main.js": "/turnip-watch-nh/static/js/main.66dd989b.chunk.js",
-    "main.js.map": "/turnip-watch-nh/static/js/main.66dd989b.chunk.js.map",
+    "main.js": "/turnip-watch-nh/static/js/main.2c092733.chunk.js",
+    "main.js.map": "/turnip-watch-nh/static/js/main.2c092733.chunk.js.map",
     "runtime-main.js": "/turnip-watch-nh/static/js/runtime-main.88c843a9.js",
     "runtime-main.js.map": "/turnip-watch-nh/static/js/runtime-main.88c843a9.js.map",
     "static/css/2.1c0e0c95.chunk.css": "/turnip-watch-nh/static/css/2.1c0e0c95.chunk.css",
-    "static/js/2.20be4826.chunk.js": "/turnip-watch-nh/static/js/2.20be4826.chunk.js",
-    "static/js/2.20be4826.chunk.js.map": "/turnip-watch-nh/static/js/2.20be4826.chunk.js.map",
+    "static/js/2.9192985b.chunk.js": "/turnip-watch-nh/static/js/2.9192985b.chunk.js",
+    "static/js/2.9192985b.chunk.js.map": "/turnip-watch-nh/static/js/2.9192985b.chunk.js.map",
     "index.html": "/turnip-watch-nh/index.html",
-    "precache-manifest.3a012386edef42fbb0f40d5440fe6a02.js": "/turnip-watch-nh/precache-manifest.3a012386edef42fbb0f40d5440fe6a02.js",
+    "precache-manifest.da082c48fb2878778e8a7e83f65d7057.js": "/turnip-watch-nh/precache-manifest.da082c48fb2878778e8a7e83f65d7057.js",
     "service-worker.js": "/turnip-watch-nh/service-worker.js",
     "static/css/2.1c0e0c95.chunk.css.map": "/turnip-watch-nh/static/css/2.1c0e0c95.chunk.css.map",
     "static/css/main.e7423ed7.chunk.css.map": "/turnip-watch-nh/static/css/main.e7423ed7.chunk.css.map",
-    "static/js/2.20be4826.chunk.js.LICENSE.txt": "/turnip-watch-nh/static/js/2.20be4826.chunk.js.LICENSE.txt",
+    "static/js/2.9192985b.chunk.js.LICENSE.txt": "/turnip-watch-nh/static/js/2.9192985b.chunk.js.LICENSE.txt",
     "static/media/styles.scss": "/turnip-watch-nh/static/media/acnh-nook-pattern-cat-with-monocle.70f10df7.png",
     "static/media/daisy-mae-avatar.png": "/turnip-watch-nh/static/media/daisy-mae-avatar.f2df3d25.png"
   },
   "entrypoints": [
     "static/js/runtime-main.88c843a9.js",
     "static/css/2.1c0e0c95.chunk.css",
-    "static/js/2.20be4826.chunk.js",
+    "static/js/2.9192985b.chunk.js",
     "static/css/main.e7423ed7.chunk.css",
-    "static/js/main.66dd989b.chunk.js"
+    "static/js/main.2c092733.chunk.js"
   ]
 }
