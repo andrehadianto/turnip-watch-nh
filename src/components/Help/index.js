@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import { Button, Modal, Typography } from "antd";
-import { QuestionOutlined, TwitterOutlined, InstagramOutlined } from "@ant-design/icons";
+import {
+    QuestionOutlined,
+    TwitterOutlined,
+    InstagramOutlined,
+} from "@ant-design/icons";
 import "./styles.scss";
 
 const Help = () => {
@@ -28,7 +32,15 @@ const Help = () => {
                     the app are the Turnip Price Chart and the Earning Chart.
                 </Typography.Paragraph>
                 <Typography.Paragraph>
-                    Find me at @andreHL_96 <TwitterOutlined/> or @andrehl96 <InstagramOutlined/> if you found any bugs! 
+                    Find me at{" "}
+                    <a href="https://twitter.com/andrehl_96">
+                        @andreHL_96 <TwitterOutlined />
+                    </a>{" "}
+                    or{" "}
+                    <a href="https://www.instagram.com/andrehl96/">
+                        @andrehl96 <InstagramOutlined />
+                    </a>{" "}
+                    if you found any bugs!
                 </Typography.Paragraph>
                 <Typography.Text>
                     <b>How-to-use</b>
@@ -37,7 +49,7 @@ const Help = () => {
                     Click on Add Item to start populating the app with data!
                 </Typography.Paragraph>
                 <Typography.Paragraph>
-                    Add Selling Price: the turnip price that Nook's Cranny
+                    Add Selling Price: the turnip price that the Nook's Cranny
                     willing to buy from you. Turnip price changes twice a day.
                     Once at the start of the day, and another one at 12PM of the
                     same day.
@@ -47,10 +59,8 @@ const Help = () => {
                     Mae on Sunday
                 </Typography.Paragraph>
                 <Typography.Paragraph>
-                    Add Transaction: Quantity of turnip that you sell to the
-                    Nook's Cranny. Also input how much did you buy and sell the
-                    turnip for. The equation to get the net income is,
-                    quantity*(sell_price-buy_price)
+                    Add Transaction: Any transaction you made! Whether you buy
+                    turnips from Daisy Mae or sell turnips to the Nook's Cranny
                 </Typography.Paragraph>
                 <Typography.Text>
                     <b>How to save?</b>
@@ -64,7 +74,8 @@ const Help = () => {
                     <b>Credit</b>
                 </Typography.Text>
                 <Typography.Paragraph>
-                    @greyonart and CatWithMonocle for the avatar and background
+                    <a href="https://catwithmonocle.com/">CatWithMonocle</a> for
+                    the background image
                 </Typography.Paragraph>
             </Modal>
         </>

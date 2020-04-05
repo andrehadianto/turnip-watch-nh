@@ -7,4 +7,4 @@ A web application to track your Animal Crossing's turnip stalk market as well as
 Animal Crossing series that started this addiction.
 
 ## Credit
-Thanks to @greyonart and CatWithMonocle for the avatar and background images
+Thanks to CatWithMonocle for background image
