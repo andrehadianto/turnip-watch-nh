@@ -6,8 +6,9 @@ import {
     CartesianGrid,
     XAxis,
     YAxis,
-    Tooltip
+    Tooltip,
 } from "recharts";
+import {message} from 'antd'
 import moment from "moment";
 import { connect } from "react-redux";
 import "./styles.scss";
@@ -16,6 +17,11 @@ const TurnipGraphChart = ({ priceChart, buyPrice, dateFilter }) => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
+        if (!(localStorage.getItem('f'))) {
+            message.info("Read HELP before using this application!",5)
+            localStorage.setItem('f',1)
+        }
+
         const dateArray = [];
         for (let i = 1; i < 7; i++) {
             dateArray.push(
