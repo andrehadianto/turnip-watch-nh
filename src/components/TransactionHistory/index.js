@@ -1,6 +1,6 @@
 import React from "react";
 import moment from "moment";
-import { List, Col, Typography, Avatar } from "antd";
+import { List, Typography, Avatar } from "antd";
 import { connect } from "react-redux";
 import "./styles.scss";
 

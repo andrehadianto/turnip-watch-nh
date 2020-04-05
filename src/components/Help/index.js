@@ -32,6 +32,19 @@ const Help = () => {
                     the app are the Turnip Price Chart and the Earning Chart.
                 </Typography.Paragraph>
                 <Typography.Paragraph>
+                    This web app runs on your browser's local storage, which
+                    means that your data will persist without having you to
+                    login or anything!{" "}
+                    <b>
+                        You do not have to click the save button to save your
+                        data.
+                    </b>
+                </Typography.Paragraph>
+                <Typography.Paragraph>
+                    Read below find out{" "}
+                    <b>how to transfer your data to another device.</b>
+                </Typography.Paragraph>
+                <Typography.Paragraph>
                     Find me at{" "}
                     <a href="https://twitter.com/andrehl_96">
                         @andreHL_96 <TwitterOutlined />
@@ -43,7 +56,7 @@ const Help = () => {
                     if you found any bugs!
                 </Typography.Paragraph>
                 <Typography.Text>
-                    <b>How-to-use</b>
+                    <b>What can I do with this?</b>
                 </Typography.Text>
                 <Typography.Paragraph>
                     Click on Add Item to start populating the app with data!
@@ -63,12 +76,13 @@ const Help = () => {
                     turnips from Daisy Mae or sell turnips to the Nook's Cranny
                 </Typography.Paragraph>
                 <Typography.Text>
-                    <b>How to save?</b>
+                    <b>Can I transfer my data to another device?</b>
                 </Typography.Text>
                 <Typography.Paragraph>
-                    Clicking save will return the serialized and encoded data of
-                    the current state. Paste the returned data into the Load
-                    input to Load the state.
+                    Yes you can! Clicking save will return the serialized and
+                    encoded data of the current stalk market state on your
+                    current device. Paste the returned data into the Load button
+                    on another device to load the state.
                 </Typography.Paragraph>
                 <Typography.Text>
                     <b>Credit</b>
