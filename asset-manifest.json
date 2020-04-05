@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/turnip-watch-nh/static/css/main.03ec7c0e.chunk.css",
-    "main.js": "/turnip-watch-nh/static/js/main.f77fd3a2.chunk.js",
-    "main.js.map": "/turnip-watch-nh/static/js/main.f77fd3a2.chunk.js.map",
+    "main.css": "/turnip-watch-nh/static/css/main.e7423ed7.chunk.css",
+    "main.js": "/turnip-watch-nh/static/js/main.38b05257.chunk.js",
+    "main.js.map": "/turnip-watch-nh/static/js/main.38b05257.chunk.js.map",
     "runtime-main.js": "/turnip-watch-nh/static/js/runtime-main.88c843a9.js",
     "runtime-main.js.map": "/turnip-watch-nh/static/js/runtime-main.88c843a9.js.map",
     "static/css/2.1c0e0c95.chunk.css": "/turnip-watch-nh/static/css/2.1c0e0c95.chunk.css",
-    "static/js/2.c5b4d3b0.chunk.js": "/turnip-watch-nh/static/js/2.c5b4d3b0.chunk.js",
-    "static/js/2.c5b4d3b0.chunk.js.map": "/turnip-watch-nh/static/js/2.c5b4d3b0.chunk.js.map",
+    "static/js/2.20be4826.chunk.js": "/turnip-watch-nh/static/js/2.20be4826.chunk.js",
+    "static/js/2.20be4826.chunk.js.map": "/turnip-watch-nh/static/js/2.20be4826.chunk.js.map",
     "index.html": "/turnip-watch-nh/index.html",
-    "precache-manifest.4bea382945bc72ee4f4010127f4796fc.js": "/turnip-watch-nh/precache-manifest.4bea382945bc72ee4f4010127f4796fc.js",
+    "precache-manifest.cea532163fb2fe3ebf07edc46bf44df5.js": "/turnip-watch-nh/precache-manifest.cea532163fb2fe3ebf07edc46bf44df5.js",
     "service-worker.js": "/turnip-watch-nh/service-worker.js",
     "static/css/2.1c0e0c95.chunk.css.map": "/turnip-watch-nh/static/css/2.1c0e0c95.chunk.css.map",
-    "static/css/main.03ec7c0e.chunk.css.map": "/turnip-watch-nh/static/css/main.03ec7c0e.chunk.css.map",
-    "static/js/2.c5b4d3b0.chunk.js.LICENSE.txt": "/turnip-watch-nh/static/js/2.c5b4d3b0.chunk.js.LICENSE.txt",
+    "static/css/main.e7423ed7.chunk.css.map": "/turnip-watch-nh/static/css/main.e7423ed7.chunk.css.map",
+    "static/js/2.20be4826.chunk.js.LICENSE.txt": "/turnip-watch-nh/static/js/2.20be4826.chunk.js.LICENSE.txt",
     "static/media/styles.scss": "/turnip-watch-nh/static/media/acnh-nook-pattern-cat-with-monocle.70f10df7.png",
-    "static/media/daisy-mae-avatar-greyonart.png": "/turnip-watch-nh/static/media/daisy-mae-avatar-greyonart.42c720a9.png"
+    "static/media/daisy-mae-avatar.png": "/turnip-watch-nh/static/media/daisy-mae-avatar.f2df3d25.png"
   },
   "entrypoints": [
     "static/js/runtime-main.88c843a9.js",
     "static/css/2.1c0e0c95.chunk.css",
-    "static/js/2.c5b4d3b0.chunk.js",
-    "static/css/main.03ec7c0e.chunk.css",
-    "static/js/main.f77fd3a2.chunk.js"
+    "static/js/2.20be4826.chunk.js",
+    "static/css/main.e7423ed7.chunk.css",
+    "static/js/main.38b05257.chunk.js"
   ]
 }
