@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Typography, message, Modal, Button, Input } from "antd";
-import { SaveFilled, FileAddFilled} from '@ant-design/icons'
+import { SaveFilled, FileAddFilled } from "@ant-design/icons";
 import { connect } from "react-redux";
 import "./styles.scss";
 
@@ -12,10 +12,15 @@ const RecordState = ({ dispatch }) => {
         const priceChart = JSON.stringify(localStorage.getItem("priceChart"));
         const buyPrice = JSON.stringify(localStorage.getItem("buyPrice"));
         const uuid = JSON.stringify(localStorage.getItem("randid"));
-        const data = JSON.stringify([priceChart, buyPrice, uuid]);
+        const transaction = JSON.stringify(localStorage.getItem("transaction"));
+        const data = JSON.stringify([priceChart, buyPrice, uuid, transaction]);
         Modal.success({
             title: "Success! Copy the code below to someplace safe",
-            content: (<Typography.Paragraph copyable>{btoa(data).toString()}</Typography.Paragraph>)
+            content: (
+                <Typography.Paragraph copyable>
+                    {btoa(data).toString()}
+                </Typography.Paragraph>
+            ),
         });
     };
 
@@ -24,15 +29,18 @@ const RecordState = ({ dispatch }) => {
         const priceChart = JSON.parse(data[0]);
         const buyPrice = JSON.parse(data[1]);
         const uuid = JSON.parse(data[2]);
+        const transaction = JSON.parse(data[3]);
         localStorage.setItem("priceChart", priceChart);
         localStorage.setItem("buyPrice", buyPrice);
         localStorage.setItem("randid", uuid);
+        localStorage.setItem("transaction", transaction);
         dispatch({
             type: "LOAD_STATE",
             payload: {
                 priceChart: JSON.parse(priceChart),
-                buyPrice: JSON.parse(buyPrice)
-            }
+                buyPrice: JSON.parse(buyPrice),
+                transaction: JSON.parse(transaction),
+            },
         });
         setIsVisible(false);
         message.success("Load state successful!");
@@ -42,12 +50,12 @@ const RecordState = ({ dispatch }) => {
         <>
             <Button.Group>
                 <Button type="link" onClick={SaveState}>
-                    <SaveFilled/>
+                    <SaveFilled />
                     Save
                 </Button>
                 <Button type="link" onClick={() => setIsVisible(true)}>
                     Load
-                    <FileAddFilled/>
+                    <FileAddFilled />
                 </Button>
             </Button.Group>
             <Modal
@@ -56,20 +64,19 @@ const RecordState = ({ dispatch }) => {
                 onOk={LoadState}
                 onCancel={() => setIsVisible(false)}
             >
-                <Typography.Text>
-                    Copy the code you saved here
-                </Typography.Text>
+                <Typography.Text>Copy the code you saved here</Typography.Text>
                 <br />
                 <Input.TextArea
+                    allowClear
                     autoSize={{ minRows: 4 }}
-                    onChange={e => setLoadData(e.target.value)}
+                    onChange={(e) => setLoadData(e.target.value)}
                 />
             </Modal>
         </>
     );
 };
 
-const mapDispatchToProps = dispatch => {
+const mapDispatchToProps = (dispatch) => {
     return { dispatch };
 };
 
