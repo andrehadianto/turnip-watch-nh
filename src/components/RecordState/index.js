@@ -5,8 +5,9 @@ import { connect } from "react-redux";
 import "./styles.scss";
 
 const RecordState = ({ dispatch }) => {
-    const [isVisible, setIsVisible] = useState(false);
-    const [loadData, setLoadData] = useState("");
+    const [isLoadVisible, setIsLoadVisible] = useState(false);
+    const [isResetVisible, setIsResetVisible] = useState(false);
+    const [loadData, setLoadData] = useState("")
 
     const SaveState = () => {
         const priceChart = JSON.stringify(localStorage.getItem("priceChart"));
@@ -42,9 +43,14 @@ const RecordState = ({ dispatch }) => {
                 transaction: JSON.parse(transaction),
             },
         });
-        setIsVisible(false);
+        setIsLoadVisible(false);
         message.success("Load state successful!");
     };
+
+    const ResetState = () => {
+        localStorage.clear();
+        window.location.reload();
+    }
 
     return (
         <>
@@ -53,16 +59,20 @@ const RecordState = ({ dispatch }) => {
                     <SaveFilled />
                     Save
                 </Button>
-                <Button type="link" onClick={() => setIsVisible(true)}>
+                <Button type="link" onClick={() => setIsLoadVisible(true)}>
                     Load
+                    <FileAddFilled />
+                </Button>
+                <Button danger type="link" onClick={() => setIsResetVisible(true)}>
+                    Reset
                     <FileAddFilled />
                 </Button>
             </Button.Group>
             <Modal
                 title="Load State"
-                visible={isVisible}
+                visible={isLoadVisible}
                 onOk={LoadState}
-                onCancel={() => setIsVisible(false)}
+                onCancel={() => setIsLoadVisible(false)}
             >
                 <Typography.Text>Copy the code you saved here</Typography.Text>
                 <br />
@@ -71,6 +81,17 @@ const RecordState = ({ dispatch }) => {
                     autoSize={{ minRows: 4 }}
                     onChange={(e) => setLoadData(e.target.value)}
                 />
+            </Modal>
+            <Modal
+            type="warning"
+                title="Are you sure?"
+                visible={isResetVisible}
+                onOk={ResetState}
+                okType="danger"
+                okText="Delete!"
+                onCancel={() => setIsResetVisible(false)}
+            >
+                <Typography.Text>This will delete all your state to a blank slate!</Typography.Text>
             </Modal>
         </>
     );

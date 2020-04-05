@@ -55,6 +55,15 @@ const Help = () => {
                     </a>{" "}
                     if you found any bugs!
                 </Typography.Paragraph>
+                <Typography.Text type="danger">
+                    <b>WARNING</b>
+                </Typography.Text>
+                <Typography.Paragraph>
+                    This web app stores data in the browser's cookies. Clearing
+                    the cookies will reset your data! Do save your state and
+                    store the code in a safe place before clearing your
+                    browser's cache!
+                </Typography.Paragraph>
                 <Typography.Text>
                     <b>What can I do with this?</b>
                 </Typography.Text>
@@ -62,17 +71,17 @@ const Help = () => {
                     Click on Add Item to start populating the app with data!
                 </Typography.Paragraph>
                 <Typography.Paragraph>
-                    Add Selling Price: the turnip price that the Nook's Cranny
+                    <em>Add Selling Price:</em> the turnip price that the Nook's Cranny
                     willing to buy from you. Turnip price changes twice a day.
                     Once at the start of the day, and another one at 12PM of the
                     same day.
                 </Typography.Paragraph>
                 <Typography.Paragraph>
-                    Add Buying Price: the turnip price that you buy from Daisy
+                    <em>Add Buying Price:</em> the turnip price that you buy from Daisy
                     Mae on Sunday
                 </Typography.Paragraph>
                 <Typography.Paragraph>
-                    Add Transaction: Any transaction you made! Whether you buy
+                    <em>Add Transaction:</em> Any transaction you made! Whether you buy
                     turnips from Daisy Mae or sell turnips to the Nook's Cranny
                 </Typography.Paragraph>
                 <Typography.Text>
