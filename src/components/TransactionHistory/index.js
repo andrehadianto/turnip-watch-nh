@@ -1,22 +1,34 @@
 import React from "react";
 import moment from "moment";
-import { List, Typography, Avatar } from "antd";
+import { List, Typography, Avatar, Button } from "antd";
 import { connect } from "react-redux";
 import "./styles.scss";
 
-const TransactionHistory = ({ transaction }) => {
+const TransactionHistory = ({ transaction, dispatch }) => {
+    const onDelete = (data) => {
+        dispatch({
+            type: "DELETE_TRANSACTION",
+            payload: {
+                date: data.date,
+                quantity: data.quantity,
+                buy: data.buy,
+                sell: data.sell,
+            },
+        });
+    };
+
     return (
         <>
             {Object.keys(transaction).map((date) => {
                 const data = [];
                 transaction[date].forEach((item) => {
                     data.push({
+                        date: date,
                         quantity: item[0],
                         buy: item[1],
                         sell: item[2],
                     });
                 });
-                console.log(data);
                 return (
                     <List
                         style={{ alignItems: "start" }}
@@ -27,19 +39,12 @@ const TransactionHistory = ({ transaction }) => {
                         renderItem={(item) => (
                             <List.Item
                                 actions={[
-                                    item.buy ? (
-                                        <Typography.Text
-                                            style={{ color: "#ff4757" }}
-                                        >
-                                            -{item.quantity * item.buy}
-                                        </Typography.Text>
-                                    ) : (
-                                        <Typography.Text
-                                            style={{ color: "#2ed673" }}
-                                        >
-                                            +{item.quantity * item.sell}
-                                        </Typography.Text>
-                                    ),
+                                    <Button
+                                        type="link"
+                                        onClick={() => onDelete(item)}
+                                    >
+                                        Delete
+                                    </Button>,
                                 ]}
                             >
                                 <List.Item.Meta
@@ -69,6 +74,19 @@ const TransactionHistory = ({ transaction }) => {
                                               " turnips"
                                     }
                                 />
+                                {item.buy ? (
+                                    <Typography.Text
+                                        style={{ color: "#ff4757" }}
+                                    >
+                                        -{item.quantity * item.buy}
+                                    </Typography.Text>
+                                ) : (
+                                    <Typography.Text
+                                        style={{ color: "#2ed673" }}
+                                    >
+                                        +{item.quantity * item.sell}
+                                    </Typography.Text>
+                                )}
                             </List.Item>
                         )}
                     />
@@ -82,6 +100,13 @@ const mapStateToProps = (state) => {
     return { transaction: state.transaction };
 };
 
-const connectApp = connect(mapStateToProps)(TransactionHistory);
+const mapDispatchToProps = (dispatch) => {
+    return { dispatch };
+};
+
+const connectApp = connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(TransactionHistory);
 
 export { connectApp as TransactionHistory };
