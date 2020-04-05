@@ -7,7 +7,7 @@ import "./styles.scss";
 const RecordState = ({ dispatch }) => {
     const [isLoadVisible, setIsLoadVisible] = useState(false);
     const [isResetVisible, setIsResetVisible] = useState(false);
-    const [loadData, setLoadData] = useState("")
+    const [loadData, setLoadData] = useState("");
 
     const SaveState = () => {
         const priceChart = JSON.stringify(localStorage.getItem("priceChart"));
@@ -50,7 +50,7 @@ const RecordState = ({ dispatch }) => {
     const ResetState = () => {
         localStorage.clear();
         window.location.reload();
-    }
+    };
 
     return (
         <>
@@ -63,7 +63,11 @@ const RecordState = ({ dispatch }) => {
                     Load
                     <FileAddFilled />
                 </Button>
-                <Button danger type="link" onClick={() => setIsResetVisible(true)}>
+                <Button
+                    danger
+                    type="link"
+                    onClick={() => setIsResetVisible(true)}
+                >
                     Reset
                     <FileAddFilled />
                 </Button>
@@ -83,7 +87,7 @@ const RecordState = ({ dispatch }) => {
                 />
             </Modal>
             <Modal
-            type="warning"
+                type="warning"
                 title="Are you sure?"
                 visible={isResetVisible}
                 onOk={ResetState}
@@ -91,7 +95,9 @@ const RecordState = ({ dispatch }) => {
                 okText="Delete!"
                 onCancel={() => setIsResetVisible(false)}
             >
-                <Typography.Text>This will delete all your state to a blank slate!</Typography.Text>
+                <Typography.Text>
+                    This will delete all your state to a blank slate!
+                </Typography.Text>
             </Modal>
         </>
     );
