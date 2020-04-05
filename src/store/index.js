@@ -16,7 +16,7 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     if (action.type === "ADD_PRICE") {
-        let tmp = Object.assign({}, state.priceChart);
+        const tmp = Object.assign({}, state.priceChart);
         if (!(action.payload.date in state.priceChart)) {
             tmp[action.payload.date] = [];
         }
@@ -31,7 +31,7 @@ const reducer = (state = initialState, action) => {
         });
     }
     if (action.type === "ADD_BUY_PRICE") {
-        let tmp = Object.assign({}, state.buyPrice);
+        const tmp = Object.assign({}, state.buyPrice);
         tmp[action.payload.date] = action.payload.buyingPrice;
         localStorage.setItem("buyPrice", JSON.stringify(tmp));
         return Object.assign({}, state, {
@@ -47,23 +47,57 @@ const reducer = (state = initialState, action) => {
         return Object.assign({}, state, action.payload);
     }
     if (action.type === "ADD_TRANSACTION") {
-        let tmp = Object.assign({}, state.transaction);
+        const tmp = Object.assign({}, state.transaction);
         if (!(action.payload.date in state.transaction)) {
             tmp[action.payload.date] = [];
         }
-        let txn = []
+        let txn = [];
         if (action.payload.buySell === "buy") {
             txn[0] = action.payload.quantity;
             txn[1] = action.payload.price;
-            txn[2] = 0
+            txn[2] = 0;
         } else if (action.payload.buySell === "sell") {
             txn[0] = action.payload.quantity;
-            txn[1] = 0
+            txn[1] = 0;
             txn[2] = action.payload.price;
         }
-        tmp[action.payload.date].push(txn)
-        localStorage.setItem("transaction", JSON.stringify(tmp));
-        return Object.assign({}, state, { transaction: tmp });
+        tmp[action.payload.date].push(txn);
+
+        let sortedArray = [];
+        const sortedTmp = {};
+        Object.keys(tmp).forEach((date) => {
+            sortedArray.push(moment(date, "YYYY-MM-DD"));
+        });
+        sortedArray = sortedArray.sort((a, b) => b.diff(a));
+        sortedArray.forEach((date) => {
+            sortedTmp[date.format("YYYY-MM-DD")] =
+                tmp[date.format("YYYY-MM-DD")];
+        });
+
+        localStorage.setItem("transaction", JSON.stringify(sortedTmp));
+        return Object.assign({}, state, { transaction: sortedTmp });
+    }
+    if (action.type === "DELETE_TRANSACTION") {
+        var BreakException = {};
+        const tmp = Object.assign({}, state.transaction);
+        try {
+            tmp[action.payload.date].forEach((item, index) => {
+                if (
+                    item[0] === action.payload.quantity &&
+                    item[1] === action.payload.buy &&
+                    item[2] === action.payload.sell
+                ) {
+                    tmp[action.payload.date].splice(index, 1);
+                    if (tmp[action.payload.date].length === 0) {
+                        delete tmp[action.payload.date];
+                    }
+                    throw BreakException;
+                }
+            });
+        } catch (e) {
+            localStorage.setItem("transaction", JSON.stringify(tmp));
+            return Object.assign({}, state, { transaction: tmp });
+        }
     }
     return state;
 };
