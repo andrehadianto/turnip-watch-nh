@@ -43,6 +43,16 @@ const AddPriceForm = ({ dispatch }) => {
             </Row>
             <Row>
                 <Col span={24}>
+                    <Form.Item name="day-noon-radio">
+                        <Radio.Group>
+                            <Radio value="morning">Before 12</Radio>
+                            <Radio value="afternoon">After 12</Radio>
+                        </Radio.Group>
+                    </Form.Item>
+                </Col>
+            </Row>
+            <Row>
+                <Col span={24}>
                     <Form.Item name="price-input">
                         <InputNumber
                             type="number"
@@ -50,16 +60,6 @@ const AddPriceForm = ({ dispatch }) => {
                             style={{ width: "100%" }}
                             min={0}
                         />
-                    </Form.Item>
-                </Col>
-            </Row>
-            <Row>
-                <Col span={24}>
-                    <Form.Item name="day-noon-radio">
-                        <Radio.Group>
-                            <Radio value="morning">Before 12</Radio>
-                            <Radio value="afternoon">After 12</Radio>
-                        </Radio.Group>
                     </Form.Item>
                 </Col>
             </Row>

@@ -1,6 +1,6 @@
 import React from "react";
-import moment from 'moment';
-import { List, Col } from "antd";
+import moment from "moment";
+import { List, Col, Typography, Avatar } from "antd";
 import { connect } from "react-redux";
 import "./styles.scss";
 
@@ -19,30 +19,56 @@ const TransactionHistory = ({ transaction }) => {
                 console.log(data);
                 return (
                     <List
-                        style={{margin: "20px 0px"}}
-                        header={moment(date, "YYYY-MM-DD").format("dddd, MMMM Do YYYY")}
+                        style={{ alignItems: "start" }}
+                        header={moment(date, "YYYY-MM-DD").format(
+                            "dddd, MMMM Do YYYY"
+                        )}
                         dataSource={data}
                         renderItem={(item) => (
-                            <List.Item>
-                                <Col
-                                    xs={{ span: 4, offset: 1 }}
-                                    sm={{ span: 2 }}
-                                >
-                                    {item.quantity} turnips
-                                </Col>
-                                <Col
-                                    xs={{ span: 6, offset: 1 }}
-                                    sm={{ span: 4 }}
-                                >
-                                    {item.buy} -> {item.sell}
-                                </Col>
-                                <Col>
-                                    {item.quantity * (item.sell - item.buy) >= 0
-                                        ? "+"
-                                        : ""}
-                                    {item.quantity * (item.sell - item.buy)}{" "}
-                                    bells
-                                </Col>
+                            <List.Item
+                                actions={[
+                                    item.buy ? (
+                                        <Typography.Text
+                                            style={{ color: "#ff4757" }}
+                                        >
+                                            -{item.quantity * item.buy}
+                                        </Typography.Text>
+                                    ) : (
+                                        <Typography.Text
+                                            style={{ color: "#2ed673" }}
+                                        >
+                                            +{item.quantity * item.sell}
+                                        </Typography.Text>
+                                    ),
+                                ]}
+                            >
+                                <List.Item.Meta
+                                    avatar={
+                                        item.buy ? (
+                                            <Avatar
+                                                src={require("../../resources/expense.png")}
+                                            />
+                                        ) : (
+                                            <Avatar
+                                                src={require("../../resources/earnings.png")}
+                                            />
+                                        )
+                                    }
+                                    title={
+                                        item.buy
+                                            ? item.buy + " bells"
+                                            : item.sell + " bells"
+                                    }
+                                    description={
+                                        item.buy
+                                            ? "bought " +
+                                              item.quantity +
+                                              " turnips"
+                                            : "sold " +
+                                              item.quantity +
+                                              " turnips"
+                                    }
+                                />
                             </List.Item>
                         )}
                     />
