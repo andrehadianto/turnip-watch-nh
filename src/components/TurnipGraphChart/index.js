@@ -17,7 +17,7 @@ const TurnipGraphChart = ({ priceChart, buyPrice, dateFilter }) => {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-        if (!localStorage.getItem("f")) {
+        if (!localStorage.getItem("e")) {
             message.info("Read HELP before using this application!", 5);
             if (!localStorage.getItem("priceChart") || JSON.parse(localStorage.getItem("priceChart")) === null) {
                 localStorage.setItem("priceChart", JSON.stringify({}));
