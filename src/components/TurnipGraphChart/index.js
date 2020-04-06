@@ -19,16 +19,16 @@ const TurnipGraphChart = ({ priceChart, buyPrice, dateFilter }) => {
     useEffect(() => {
         if (!localStorage.getItem("f")) {
             message.info("Read HELP before using this application!", 5);
-            if (!localStorage.getItem("priceChart")) {
+            if (!localStorage.getItem("priceChart") || JSON.parse(localStorage.getItem("priceChart")) === null) {
                 localStorage.setItem("priceChart", JSON.stringify({}));
             }
-            if (!localStorage.getItem("buyPrice")) {
+            if (!localStorage.getItem("buyPrice") || JSON.parse(localStorage.getItem("buyPrice")) === null) {
                 localStorage.setItem("buyPrice", JSON.stringify({}));
             }
-            if (!localStorage.getItem("transaction")) {
+            if (!localStorage.getItem("transaction") || JSON.parse(localStorage.getItem("transaction")) === null) {
                 localStorage.setItem("transaction", JSON.stringify({}));
             }
-            localStorage.setItem("f", 1);
+            localStorage.setItem("e", 1);
         }
 
         const dateArray = [];
